@@ -208,8 +208,9 @@ export default function Home() {
         {/* Main Header / Brand */}
         <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-neutral-800 pb-8 gap-4">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-inner">
-              <NotebookText className="w-9 h-9 text-sky-500" />
+            <div className="p-2 bg-neutral-900 border border-neutral-800 rounded-xl shadow-inner mb-15 sm:mb-0">
+              {/* <NotebookText className="w-9 h-9 text-sky-500 " /> */}
+              <img className="border-0 rounded-sm" src="./favicon.ico" alt="" />
             </div>
             <div>
               <h1 className="text-4xl font-extrabold tracking-tight text-white">
@@ -221,6 +222,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+
           <div className="flex items-center gap-2 p-1.5 px-4 bg-neutral-900 border border-neutral-800 rounded-full shadow-inner">
             {isLoaded ? (
               <>
