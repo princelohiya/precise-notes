@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     const buffer = Buffer.from(await audioFile.arrayBuffer());
     const base64Audio = buffer.toString("base64");
 
-    const model = genAI.getGenerativeModel({ model: "gemini-3.6-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
 
     const prompt = `
       You are an expert technical note-taker. 
