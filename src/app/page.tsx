@@ -151,20 +151,33 @@ export default function Home() {
             body: formData,
           });
 
-          if (!response.ok) throw new Error(`API Error on chunk ${i + 1}`);
+          if (!response.ok) {
+            // Handle rate limits explicitly
+            if (response.status === 429) {
+              throw new Error(
+                "Rate limit hit. The chunks are processing too quickly.",
+              );
+            }
+            throw new Error(`API Error on chunk ${i + 1}`);
+          }
 
           const data = await response.json();
-          // Append data to notes state - triggers UI refresh and .prose rendering
           setNotes((prev) => prev + "\n\n" + data.notes);
         } catch (error) {
           console.error(error);
           setStatus(
             `Failed to process lecture segment ${i + 1}. Attempting to proceed.`,
           );
-          // Don't break loop on single chunk failure, try continuing for others.
         } finally {
-          // 🧹 Memory Cleanup 1: Delete processed chunk from RAM
+          // 🧹 Memory Cleanup
           await ffmpeg.deleteFile(chunk.name);
+
+          // ⏱️ ANTI-RATE-LIMIT COOLDOWN
+          // Wait 8 seconds before sending the next chunk (skip delay on the final chunk)
+          if (i < chunkFiles.length - 1) {
+            setStatus("Cooling down API to prevent rate limits... (8s)");
+            await new Promise((resolve) => setTimeout(resolve, 8000));
+          }
         }
       }
 
