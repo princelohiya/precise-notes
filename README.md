@@ -1,6 +1,5 @@
 # Precise Notes
 
-\
 
 **Precise Notes** is an intelligent, privacy-focused lecture synthesizer that transforms long-form video lectures into structured, easy-to-read Markdown notes using generative AI.
 
@@ -15,7 +14,6 @@ Instead of uploading large video files to a backend server, Precise Notes proces
 - 🔒 **Local Video Processing** — Video files are processed directly in your browser and are never uploaded to your server.
 - ⚡ **FFmpeg WebAssembly** — Extract and process audio directly on the user's device.
 - 🤖 **AI-Powered Notes** — Uses Gemini to transform lecture content into structured, comprehensive notes.
-- ▶️ **YouTube Support** — Generate notes from YouTube lectures using available closed captions.
 - 📝 **Markdown Output** — Notes are generated in clean, structured Markdown.
 - 💅 **Notion-Style Editor** — Clean workspace designed for reading and organizing notes.
 - 📋 **One-Click Copy** — Copy generated notes directly to your clipboard.
@@ -300,7 +298,6 @@ Precise Notes is particularly useful for:
 - Programming tutorials
 - Technical courses
 - Conference talks
-- Educational YouTube videos
 - Long-form presentations
 - Exam preparation
 - Self-paced learning
